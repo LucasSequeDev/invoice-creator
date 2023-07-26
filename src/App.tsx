@@ -53,6 +53,7 @@ function App() {
 
   return (
     <>
+    <a href='https://github.com/LucasSequeDev/invoice-creator' target='_blank' rel='noreferrer'>Github</a>
     <div className='tools'>
       <button onClick={() => setData(RESET_DATA)}>Reset</button>
       <button onClick={() => handleCreateNextInvoice()}>Next Invoice</button>
@@ -60,8 +61,8 @@ function App() {
       <Pdf targetRef={ref} filename={`Invoice-N${data.invoiceId}-${data.name.toUpperCase()}-${data.date}.pdf`}>
         {({ toPdf }: { toPdf: () => void}) => <button onClick={toPdf}>Generate Pdf</button>}
       </Pdf>
-      {saved ? <span className='notification saved'>Saved</span> : <span className='notification not-saved'>Not Saved</span>}
     </div>
+      {saved ? <span className='notification saved'>Saved</span> : <span className='notification not-saved'>Not Saved</span>}
     <div className='app' ref={ref}>
       <header>
         <h1>FACTURA</h1>
