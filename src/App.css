@@ -1,0 +1,147 @@
+#root {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(247, 247, 247);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 775px; 
+  height: 1100px;
+  padding: 10px;
+  border: 1px solid rgb(94, 94, 94);
+  background-color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-content: start;
+}
+
+header h1{
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 300px;
+}
+
+.bo-sm {
+  width: 200px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.row span {
+  width: 150px;
+  height: 100%;
+  padding: 5px 10px;
+  text-align: start;
+}
+
+.row span:first-child {
+  border-right: 2px solid lightgray;
+  color: gray;
+  font-weight: 700;
+  text-align: end;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 4rem 0;
+}
+
+.date-invoice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inline {
+  display: inline-block;
+}
+
+table {
+  border-spacing: unset
+}
+
+table tr {
+  border: none;
+}
+
+table .t {
+  border-top: 2px solid lightgray;
+}
+
+table .r {
+  border-right: 2px solid lightgray;
+}
+
+table .b {
+  border-bottom: 2px solid lightgray;
+}
+
+table .l {
+  border-left: 2px solid lightgray;
+}
+
+.text-left {
+  text-align: start;
+}
+
+
+table .cell-sm {
+  height: 24px;
+  font-size: 10px;
+}
+
+table .cell-md {
+  height: 36px;
+  font-size: 14px;
+}
+
+.amount {
+  text-align: end;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.notification {
+  padding-left: 20px;
+}
+
+.saved {
+  color: green;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.not-saved {
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+}
