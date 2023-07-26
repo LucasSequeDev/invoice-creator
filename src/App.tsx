@@ -41,8 +41,8 @@ function App() {
     setSaved(false)
   }
 
-  const handleChange = (key: string, e: any) => {
-    setData({...data, [key]: e.currentTarget.textContent})
+  const handleChange = (key: string, text: string ) => {
+    setData({...data, [key]: text})
     setSaved(false)
   }
 
@@ -58,7 +58,7 @@ function App() {
       <button onClick={() => handleCreateNextInvoice()}>Next Invoice</button>
       <button onClick={() => handleSave()}>Save</button>
       <Pdf targetRef={ref} filename={`Invoice-N${data.invoiceId}-${data.name.toUpperCase()}-${data.date}.pdf`}>
-        {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+        {({ toPdf }: { toPdf: () => void}) => <button onClick={toPdf}>Generate Pdf</button>}
       </Pdf>
       {saved ? <span className='notification saved'>Saved</span> : <span className='notification not-saved'>Not Saved</span>}
     </div>
@@ -67,10 +67,10 @@ function App() {
         <h1>FACTURA</h1>
         <div className='box'>
           <div className='row'>
-            <span>Nombre</span><span contentEditable={true} onBlur={e => handleChange('name',e)}>{data.name || '-'}</span>
+            <span>Nombre</span><span contentEditable={true} onBlur={e => handleChange('name',e.currentTarget.textContent!)}>{data.name || '-'}</span>
           </div>
           <div className='row'>
-            <span>Direccion</span><span contentEditable={true} onBlur={e => handleChange('address',e)}>{data.address || '-'}</span>
+            <span>Direccion</span><span contentEditable={true} onBlur={e => handleChange('address',e.currentTarget.textContent!)}>{data.address || '-'}</span>
           </div>
         </div>
       </header>
@@ -78,18 +78,18 @@ function App() {
         <div className='date-invoice'>
           <div className='box bo-sm'>
             <div className='row'>
-              <span>ID de factura</span><span contentEditable={true} onBlur={e => handleChange('invoiceId',e)}>{data.invoiceId || '-'}</span>
+              <span>ID de factura</span><span contentEditable={true} onBlur={e => handleChange('invoiceId',e.currentTarget.textContent!)}>{data.invoiceId || '-'}</span>
             </div>
             <div className='row'>
-              <span>Fecha</span><span contentEditable={true} onBlur={e => handleChange('date',e)}>{data.date || '-'}</span>
+              <span>Fecha</span><span contentEditable={true} onBlur={e => handleChange('date',e.currentTarget.textContent!)}>{data.date || '-'}</span>
             </div>
           </div>
           <div className='box'>
             <div className='row'>
               <span>Para</span>
               <div>
-                <b className='text-left inline' contentEditable={true} onBlur={e => handleChange('toName',e)}>{data.toName || '-'}</b>
-                <span className='inline' contentEditable={true} onBlur={e => handleChange('toAddress',e)}>{data.toAddress || '-'}</span>
+                <b className='text-left inline' contentEditable={true} onBlur={e => handleChange('toName',e.currentTarget.textContent!)}>{data.toName || '-'}</b>
+                <span className='inline' contentEditable={true} onBlur={e => handleChange('toAddress',e.currentTarget.textContent!)}>{data.toAddress || '-'}</span>
               </div>
             </div>
           </div>
@@ -105,8 +105,8 @@ function App() {
           <tbody>
             <tr className='cell-md'>
               <td className='r b'>Servicio</td>
-              <td className='r b' contentEditable={true} onBlur={e => handleChange('itemDescription',e)}>{data.itemDescription || '-'}</td>
-              <td className='b' contentEditable={true} onBlur={e => handleChange('itemAmount',e)}>{data.itemAmount || '-'}</td>
+              <td className='r b' contentEditable={true} onBlur={e => handleChange('itemDescription',e.currentTarget.textContent!)}>{data.itemDescription || '-'}</td>
+              <td className='b' contentEditable={true} onBlur={e => handleChange('itemAmount',e.currentTarget.textContent!)}>{data.itemAmount || '-'}</td>
             </tr>
           </tbody>
         </table>
